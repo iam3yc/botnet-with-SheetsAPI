@@ -1,0 +1,29 @@
+{
+    "version": "1.0",
+    "tasks": [
+      {
+        "name": "install_package",
+        "type": "command",
+        "command": "apt-get install -y nginx"
+      },
+      {
+        "name": "configure_nginx",
+        "type": "file_edit",
+        "path": "/etc/nginx/nginx.conf",
+        "content": "worker_processes 4;"
+      },
+      {
+        "name": "start_service",
+        "type": "service",
+        "service_name": "nginx",
+        "action": "restart"
+      },
+      {
+        "name": "create_user",
+        "type": "system",
+        "action": "add_user",
+        "username": "deploy"
+      }
+    ]
+  }
+  
